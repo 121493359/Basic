@@ -4,6 +4,7 @@ package com.android.core.model.control;
 import com.android.core.model.annotation.Implement;
 
 import java.lang.annotation.Annotation;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -16,6 +17,7 @@ import java.util.Map;
  */
 public class LogicProxy {
     private static final LogicProxy m_instance = new LogicProxy();
+    Map<Object, List<BaseLogic>> m_bind_info;
 
     public static LogicProxy getInstance() {
         return m_instance;
@@ -54,6 +56,34 @@ public class LogicProxy {
     public <T> T bind(Class cls, Object o) {
         Object ret = m_objects.get(cls);
         ((BaseLogic) ret).attachView(o);
+        List<BaseLogic> bls = m_bind_info.get(o);
+        if(bls != null) {
+            boolean exist = false;
+            for(BaseLogic bl : bls) {
+                if(ret.equals(bl)) {
+                    exist = true;
+                    break;
+                }
+            }
+            if(!exist) {
+                bls.add((BaseLogic)ret);
+                m_bind_info.put(o, bls);
+            }
+        } else {
+            bls = new ArrayList<>();
+            bls.add((BaseLogic)ret);
+            m_bind_info.put(o, bls);
+        }
         return (T) ret;
+    }
+
+    public void unbind(Object o) {
+        List<BaseLogic> bls = m_bind_info.get(o);
+        if(bls != null) {
+            for(BaseLogic bl : bls) {
+                //bl.unbind();
+            }
+        }
+        m_bind_info.remove(o);
     }
 }

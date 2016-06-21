@@ -43,6 +43,7 @@ public abstract class BaseActivity extends Activity {
     protected void onDestroy() {
         super.onDestroy();
         ButterKnife.unbind(this);
+        LogicProxy.getInstance().unbind(this);
     }
 
     @Override
