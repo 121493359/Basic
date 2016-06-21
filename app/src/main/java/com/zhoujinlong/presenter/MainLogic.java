@@ -1,5 +1,6 @@
 package com.zhoujinlong.presenter;
 
+import com.android.core.model.Canceller;
 import com.android.core.model.annotation.Implement;
 import com.zhoujinlong.presenter.impl.MainLogicImpl;
 
@@ -10,5 +11,5 @@ import com.zhoujinlong.presenter.impl.MainLogicImpl;
  */
 @Implement(MainLogicImpl.class)
 public interface MainLogic {
-    void onLoadRemoteData(boolean isMore, int page);
+    Canceller onLoadRemoteData(boolean isMore, int page);
 }

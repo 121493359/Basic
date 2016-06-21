@@ -1,5 +1,6 @@
 package com.zhoujinlong.presenter.impl;
 
+import com.android.core.model.Canceller;
 import com.zhoujinlong.model.bean.Classify;
 import com.zhoujinlong.model.http.Factory;
 import com.zhoujinlong.presenter.MainLogic;
@@ -16,8 +17,9 @@ import retrofit2.Response;
  */
 public class MainLogicImpl extends LoadSuccessLogicImpl implements MainLogic {
     @Override
-    public void onLoadRemoteData(final boolean isMore, int page) {
-        Factory.provideHttpService().getImageClassify(page).enqueue(new Callback<Classify>() {
+    public Canceller onLoadRemoteData(final boolean isMore, int page) {
+        final Call<Classify> c = Factory.provideHttpService().getImageClassify(page);
+        c.enqueue(new Callback<Classify>() {
             @Override
             public void onResponse(Call<Classify> call, Response<Classify> response) {
                 onLoadListSuccessHandle(response, isMore);
@@ -28,5 +30,11 @@ public class MainLogicImpl extends LoadSuccessLogicImpl implements MainLogic {
                 onLoadFail("wangluocuwu");
             }
         });
+        return new Canceller() {
+            @Override
+            public void Cancel() {
+                c.cancel();
+            }
+        };
     }
 }
