@@ -1,119 +1,18 @@
-## Welcome!
-Architecture is like teenage sex，everybody talks about it，nobody
-really knows what is it。
-> u feel useful please star，continuous update this basic!
-万水千山总是情，给个star行不行?
+## Basic
+[Basic Architecture](https://github.com/meikoz/Basic) Android 简单好用的 Mvp 开发框架，在 Android 开发项目中，
+首先要考虑每个项目的共同点，比如说：Mvp、网络请求层、Base 存放 View 的基类、Log日志、App crash、刷新加载更多、Loading、广告图、支持ListView,RecyclerView的BaseAdater、
+通知栏沉浸式、图片加载缓存、底部导航功能．．．
 
-## Where is the use ?
-- 新颖Mvp模式
-- 网络请求的封装 retrofit + rxjava +okhttp
-- 强大的漂亮日志 
-- 加载/刷新 多样
-- App crash 异常的处理
-- 快速实现广告轮播图、引导页功能
-- 快速实现底部导航功能
-- 右滑页面关闭当前Activity
-- 万能的Adapter
+## 功能
+- 封装Base基类（BaseAct、BaseFrament、BaseRefreshAct、BasePresent、BaseView）
+    - 使通用方法和功能进行统一管理
+    - 方法入口统一，方便进行代码管理
+    - 子类实现父类方法
 
-## How Usage
-####Step 1:
-Setup 'Basic' dependencies in build.gradle file:
-```
-dependencies {
-    compile 'com.meikoz.basic:core:1.0.6'
-}
-```
-####Step 2:
-Create subclass of Application extends MainApplication，initialize basic BuildConfig.debug is true in super.onCreate() method before for debug print log.
-```
-public class BaseApp extends MainApplication {
-    @Override
-    public void onCreate() {
-        RestApi.getInstance().deBug(true);
-        super.onCreate();
-    }
-}
-```
-- RestApi.getInstance().deBug(true); 是为了Debug打印日志,请上线前删掉此方法(重要)
+- 网络请求层封装（retrofit2.0 + okhttp）
+    - retrofit2.0 + okhttp 最高效简洁的网络请求
 
-####Step 3:
-app usage mvp pattern,  View and Presenter need things.
-View extends BaseView. Presenter extends BasePresenter<View>.
-```
-@Implement(MainLogicImpl.class)
-public interface MainLogicI {
-    void onLoadData2Remote();
-
-    interface MainView extends BaseView {
-        void onLoadSuccessHandler(String responce);
-    }
-}
-
-public class MainLogicImpl extends BasePresenter<MainLogicI.MainView>
-    implements MainLogicI {
-    @Override
-    public void onLoadData2Remote() {
-        getView().onLoadSuccessHandler("请求成功,返回的数据");
-    }
-}
-```
-How to initialize use the Activity.
-```
-class MainActivity extends Activity implements MainLogicI.MainView {
-
-   @Override
-    protected Class getLogicClazz() {
-        return your interface MainLogicI class;// MainLogic是Presenter要实现的接口
-    }
-
-    @Override
-    protected void onInitData2Remote() {
-        super.onInitData2Remote();
-       ((MainLogicImpl) mPresenter).onLoadData2Remote();
-    }
-
-    @Override
-    public void onLoadSuccessHandler(String response) {
-    //response是Presenter中返回的数据
-   }
-}
-```
-- super.onInitData2Remote(); 会初始化Presnter并bindView
-
-####Step 4:
-Network: Retrofit + okhttp
-根据不同业务生成不同Service
-```
-public class ApiManager {
-    public static APIService createApi() {
-        return RestApi.getInstance().create(APIService.class);
-    }
-    public static UserService createUserApi() {
-        return RestApi.getInstance().create(UserService.class);
-    }
-}
-
-public interface APIService {
-    String BASE_URL ="https://github.com/";
-    @GET("api/v1/user")
-    Call<Response> getUserInfo(@Query("uid") int uid);
-}
-```
-## See Details
-> [详细链接请点击](https://github.com/meikoz/Basic/wiki/Usage)
-
-> [Eyepetizer示例Demo](https://github.com/meikoz/Eyepetizer)
-
-## To do something v2.0.0
-- 网络请求前增加LoadingView，加完完成消失
-- 加载失败统一失败页面，支持重新请求
-- Activity销毁掉，关闭网络请求功能 避免报错
-- EyepetizerApp: 使用Basic框架完成开眼App
-
-## email
-zhoujinlongdev@163.com
-
-##License
+## License
 ```
 Copyright 2016 meikoz
 
