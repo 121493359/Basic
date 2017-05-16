@@ -1,4 +1,6 @@
 ## Basic
+> Architecture is like teenage sex，everybody talks about it，nobody really knows what is it。
+
 [Basic Architecture](https://github.com/meikoz/Basic) Android 简单好用的 Mvp 开发框架，在 Android 开发项目中，
 首先要考虑每个项目的共同点，比如说：Mvp、网络请求层、Base 存放 View 的基类、Log日志、App crash、刷新加载更多、Loading、广告图、支持ListView,RecyclerView的BaseAdater、
 通知栏沉浸式、图片加载缓存、底部导航功能．．．
