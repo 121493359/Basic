@@ -3,7 +3,7 @@
 首先要考虑每个项目的共同点，比如说：Mvp、网络请求层、Base 存放 View 的基类、Log日志、App crash、刷新加载更多、Loading、广告图、支持ListView,RecyclerView的BaseAdater、
 通知栏沉浸式、图片加载缓存、底部导航功能．．．
 
-## 功能
+## Feature
 - 封装Base基类（BaseAct、BaseFrament、BaseRefreshAct、BasePresent、BaseView）
     - 使通用方法和功能进行统一管理
     - 方法入口统一，方便进行代码管理
@@ -11,7 +11,7 @@
 
 - 网络请求层封装（retrofit2.0 + okhttp）
     - retrofit2.0 + okhttp 最高效简洁的网络请求
-## 使用
+## Usage
 Usage reference [Wiki](https://github.com/meikoz/Basic/wiki/Usage)
 
 ## License
