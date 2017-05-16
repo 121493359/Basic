@@ -11,6 +11,8 @@
 
 - 网络请求层封装（retrofit2.0 + okhttp）
     - retrofit2.0 + okhttp 最高效简洁的网络请求
+## 使用
+Usage reference [Wiki](https://github.com/meikoz/Basic/wiki/Usage)
 
 ## License
 ```
