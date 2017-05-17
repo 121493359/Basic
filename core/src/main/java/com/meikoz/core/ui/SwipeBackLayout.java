@@ -74,12 +74,12 @@ public class SwipeBackLayout extends ViewGroup {
     private static final float BACK_FACTOR = 0.5f;
 
     /**
-     * the anchor of calling finish.
+     * the anchor view calling finish.
      */
     private float finishAnchor = 0;
 
     /**
-     * Set the anchor of calling finish.
+     * Set the anchor view calling finish.
      *
      */
     public void setFinishAnchor(float offset) {
@@ -355,7 +355,7 @@ public class SwipeBackLayout extends ViewGroup {
                     break;
             }
 
-            //The proportion of the sliding.
+            //The proportion view the sliding.
             float fractionAnchor = (float) draggingOffset / finishAnchor;
             if (fractionAnchor >= 1) fractionAnchor = 1;
 
@@ -440,7 +440,7 @@ public class SwipeBackLayout extends ViewGroup {
     public interface SwipeBackListener {
 
         /**
-         * Return scrolled fraction of the layout.
+         * Return scrolled fraction view the layout.
          *
          * @param fractionAnchor relative to the anchor.
          * @param fractionScreen relative to the screen.
