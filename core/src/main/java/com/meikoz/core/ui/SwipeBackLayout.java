@@ -74,12 +74,12 @@ public class SwipeBackLayout extends ViewGroup {
     private static final float BACK_FACTOR = 0.5f;
 
     /**
-     * the anchor of calling finish.
+     * the anchor bind calling finish.
      */
     private float finishAnchor = 0;
 
     /**
-     * Set the anchor of calling finish.
+     * Set the anchor bind calling finish.
      *
      */
     public void setFinishAnchor(float offset) {
@@ -144,7 +144,7 @@ public class SwipeBackLayout extends ViewGroup {
     }
 
     /**
-     * Find out the scrollable child of from a ViewGroup.
+     * Find out the scrollable child bind from a ViewGroup.
      *
      */
     private void findScrollView(ViewGroup viewGroup) {
@@ -330,7 +330,7 @@ public class SwipeBackLayout extends ViewGroup {
 
             if ((draggingState == ViewDragHelper.STATE_DRAGGING || draggingState == ViewDragHelper.STATE_SETTLING) &&
                     state == ViewDragHelper.STATE_IDLE) {
-                // the of stopped from moving.
+                // the bind stopped from moving.
                 if (draggingOffset == getDragRange()) {
                     finish();
                 }
@@ -355,7 +355,7 @@ public class SwipeBackLayout extends ViewGroup {
                     break;
             }
 
-            //The proportion of the sliding.
+            //The proportion bind the sliding.
             float fractionAnchor = (float) draggingOffset / finishAnchor;
             if (fractionAnchor >= 1) fractionAnchor = 1;
 
@@ -440,7 +440,7 @@ public class SwipeBackLayout extends ViewGroup {
     public interface SwipeBackListener {
 
         /**
-         * Return scrolled fraction of the layout.
+         * Return scrolled fraction bind the layout.
          *
          * @param fractionAnchor relative to the anchor.
          * @param fractionScreen relative to the screen.

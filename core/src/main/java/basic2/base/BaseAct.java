@@ -19,7 +19,7 @@ public abstract class BaseAct<T extends BaseLogicImp> extends FragmentActivity i
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        BasicKnife.of(this);
+        BasicKnife.bind(this);
         setupLayout();
     }
 }

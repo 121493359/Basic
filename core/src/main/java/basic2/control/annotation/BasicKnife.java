@@ -15,11 +15,11 @@ import butterknife.ButterKnife;
 
 public class BasicKnife {
 
-    public static void of(Object target) {
-        of(target, null);
+    public static void bind(Object target) {
+        bind(target, null);
     }
 
-    public static void of(Object target, View v) {
+    public static void bind(Object target, View v) {
         if (target instanceof Activity)
             ButterKnife.bind((Activity) target);
         Class<?> clzz = target.getClass();
