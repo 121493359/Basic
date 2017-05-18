@@ -8,8 +8,8 @@ import android.view.Window;
 import com.meikoz.core.manage.log.Logger;
 import com.meikoz.core.model.LogicProxy;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
-
 public abstract class BaseActivity extends AppCompatActivity implements BaseView {
 
     protected BasePresenter mPresenter;

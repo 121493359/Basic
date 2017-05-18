@@ -1,4 +1,6 @@
-package basic2.logic;
+package basic2.control.mvp;
+
+import basic2.control.BaseV;
 
 /**
  * @USER: https://github.com/meikoz/
@@ -29,7 +31,7 @@ public class BaseLogicImp<V extends BaseV> implements BaseLogic<V> {
     }
 
     @Override
-    public V view() {
+    public V of() {
         return mBaseV;
     }
 }

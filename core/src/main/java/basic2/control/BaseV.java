@@ -1,4 +1,4 @@
-package basic2.logic;
+package basic2.control;
 
 /**
  * @USER: https://github.com/meikoz/
