@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="basic2.temp.LoginAct"
+            android:name=".ui.LoginAct"
             android:theme="@style/Theme.No.ActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
