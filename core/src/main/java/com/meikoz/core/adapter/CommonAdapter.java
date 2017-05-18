@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import basic2.base.adapter.ViewHolder;
+
 public abstract class CommonAdapter<T> extends BaseAdapter {
     protected LayoutInflater mInflater;
     protected Context mContext;

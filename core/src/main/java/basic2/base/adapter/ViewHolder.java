@@ -1,4 +1,4 @@
-package com.meikoz.core.adapter;
+package basic2.base.adapter;
 
 import android.content.Context;
 import android.graphics.Bitmap;
