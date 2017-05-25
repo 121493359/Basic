@@ -52,6 +52,6 @@ public class HttpFactory {
     }
 
     private OkHttpClient provideOKhttp() {
-        return new OkHttpClient.Builder().addInterceptor().build();
+        return new OkHttpClient.Builder().addInterceptor(new LoggerInterceptor()).build();
     }
 }
