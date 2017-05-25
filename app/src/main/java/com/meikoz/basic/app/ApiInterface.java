@@ -1,6 +1,5 @@
 package com.meikoz.basic.app;
 
-import com.meikoz.basic.model.Gank;
 import com.meikoz.core.api.RestApi;
 
 import retrofit2.Call;
@@ -18,7 +17,7 @@ public interface ApiInterface {
     String BASE_URL = "http://gank.io/api/";
 
     @GET("data/福利/{size}/{page}")
-    Call<Gank> onLoadNetworkData(@Path("size") int size, @Path("page") int page);
+    Call<String> onLoadNetworkData(@Path("size") int size, @Path("page") int page);
 
     class ApiFactory {
         public static ApiInterface createApi() {

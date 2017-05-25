@@ -23,8 +23,8 @@ public class BasicKnife {
         if (target instanceof Activity)
             ButterKnife.bind((Activity) target);
         Class<?> clzz = target.getClass();
-        if (target instanceof Activity && clzz.isAnnotationPresent(LayoutId.class)) {
-            int layoutRes = clzz.getAnnotation(LayoutId.class).value();
+        if (target instanceof Activity && clzz.isAnnotationPresent(Layout.class)) {
+            int layoutRes = clzz.getAnnotation(Layout.class).value();
             try {
                 Method method = clzz.getMethod("setContentView", int.class);
                 method.setAccessible(true);
@@ -37,7 +37,7 @@ public class BasicKnife {
                 e.printStackTrace();
             }
         } else {
-            throw new NullPointerException(target.getClass().getName() + " must have @interface LayoutId");
+            throw new NullPointerException(target.getClass().getName() + " must have @interface Layout");
         }
     }
 }

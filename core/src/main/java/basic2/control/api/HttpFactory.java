@@ -2,6 +2,13 @@ package basic2.control.api;
 
 import android.support.annotation.NonNull;
 
+import java.lang.annotation.Annotation;
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
+import java.util.HashMap;
+import java.util.Map;
+
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
@@ -16,8 +23,10 @@ public class HttpFactory {
 
     private static HttpFactory factory;
     private final Retrofit retrofit;
+    private HashMap<Class, Object> objects;
 
     private HttpFactory() {
+        objects = new HashMap<>();
         retrofit = new Retrofit.Builder()
                 .baseUrl("")
                 .addConverterFactory(GsonConverterFactory.create())
@@ -33,8 +42,13 @@ public class HttpFactory {
         return factory;
     }
 
-    public <T> T create(@NonNull Class<T> clzz) {
-        return retrofit.create(clzz);
+    public <T> T create(@NonNull Class<T> clz) {
+        Object obj = objects.get(clz);
+        if (obj == null) {
+            obj = retrofit.create(clz);
+            objects.put(clz, obj);
+        }
+        return (T) obj;
     }
 
     private OkHttpClient provideOKhttp() {

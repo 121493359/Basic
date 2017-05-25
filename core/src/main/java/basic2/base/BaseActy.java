@@ -4,25 +4,50 @@ import android.os.Bundle;
 import android.support.annotation.StringRes;
 import android.support.v4.app.FragmentActivity;
 import android.widget.Toast;
+
 import java.util.List;
+
+import basic2.base.mvp.BaseLogicImp;
+import basic2.base.mvp.BaseView;
 import basic2.control.annotation.BasicKnife;
-import basic2.control.mvp.BaseLogicImp;
-import basic2.control.mvp.BaseView;
 
 /**
  * @USER: https://github.com/meikoz
  * @DATE: 2017/5/17
  */
 
-public abstract class TBaseActy<T extends BaseLogicImp> extends FragmentActivity implements BaseView {
+public abstract class BaseActy<T extends BaseLogicImp> extends FragmentActivity implements BaseView {
 
     protected abstract void setupLayout();
+
+    protected abstract Class<T> getLogicClzz();
+
+    protected T mLogicImpl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         BasicKnife.bind(this);
+        configureLogicImpl();
         setupLayout();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (mLogicImpl != null && mLogicImpl.view() != this) mLogicImpl.bind(this);
+    }
+
+    private void configureLogicImpl() {
+        if (mLogicImpl == null) {
+            try {
+                mLogicImpl = getLogicClzz().newInstance();
+            } catch (InstantiationException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     /*-------------View Method-------------*/

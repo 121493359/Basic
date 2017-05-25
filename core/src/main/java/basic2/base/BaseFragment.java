@@ -6,15 +6,15 @@ import android.widget.Toast;
 
 import java.util.List;
 
-import basic2.control.mvp.BaseView;
-import basic2.control.mvp.BaseLogicImp;
+import basic2.base.mvp.BaseLogicImp;
+import basic2.base.mvp.BaseView;
 
 /**
  * @USER: https://github.com/meikoz/
  * @DATE: 2017/5/25
  */
 
-public class TBaseFrqt<T extends BaseLogicImp> extends Fragment implements BaseView {
+public class BaseFragment<T extends BaseLogicImp> extends Fragment implements BaseView {
 
     /*-------------View Method-------------*/
     @Override

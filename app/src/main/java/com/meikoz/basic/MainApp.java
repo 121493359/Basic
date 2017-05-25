@@ -8,13 +8,15 @@ import com.meikoz.core.manage.interfacee.HttpReportCallback;
 
 import java.io.File;
 
+import basic2.TApp;
+
 /**
  * @User: 蜡笔小新
  * @date: 16-11-1
  * @GitHub: https://github.com/meikoz
  */
 
-public class MainApp extends MainApplication {
+public class MainApp extends TApp {
     @Override
     public void onCreate() {
         RestApi.getInstance().bug(Constants.Config.DEVELOPER_MODE);

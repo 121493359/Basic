@@ -8,24 +8,24 @@ import android.support.v4.app.Fragment;
  * @USER: https://github.com/meikoz/
  * @DATE: 2017/5/18
  */
-public class TContextWrap {
+public class ContextWrap {
 
     private Activity activity;
     private Fragment fragment;
 
-    public static TContextWrap of(Activity activity) {
-        return new TContextWrap(activity);
+    public static ContextWrap of(Activity activity) {
+        return new ContextWrap(activity);
     }
 
-    public static TContextWrap of(Fragment fragment) {
-        return new TContextWrap(fragment);
+    public static ContextWrap of(Fragment fragment) {
+        return new ContextWrap(fragment);
     }
 
-    private TContextWrap(Activity activity) {
+    private ContextWrap(Activity activity) {
         this.activity = activity;
     }
 
-    private TContextWrap(Fragment fragment) {
+    private ContextWrap(Fragment fragment) {
         this.fragment = fragment;
         this.activity = fragment.getActivity();
     }

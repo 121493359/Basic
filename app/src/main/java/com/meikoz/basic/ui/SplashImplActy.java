@@ -1,15 +1,13 @@
-package com.meikoz.basic.ui.activity;
+package com.meikoz.basic.ui;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.os.Handler;
 import android.widget.ImageView;
 
 import com.meikoz.basic.R;
-import com.meikoz.basic.app.ImageControl;
-import com.meikoz.core.base.BaseActivity;
-import com.meikoz.core.util.StatusBarUtil;
 
+import basic2.base.BaseActy;
+import basic2.control.StatusBarUtil;
 import butterknife.Bind;
 
 /**
@@ -18,24 +16,20 @@ import butterknife.Bind;
  * @GitHub: https://github.com/meikoz
  */
 
-public abstract class SplashActivity extends BaseActivity {
+public abstract class SplashImplActy extends BaseActy {
 
+    private int DELAYED_TIME = 1500;
     @Bind(R.id.iv_splash_background)
     ImageView mImageView;
 
     @Override
-    protected int getLayoutResource() {
-        return R.layout.activity_splash;
+    protected Class getLogicClzz() {
+        return null;
     }
 
-    protected abstract Class getNextActivity2Launch();
-
     @Override
-    protected void onInitialization(Bundle bundle) {
+    protected void setupLayout() {
         StatusBarUtil.setTranslucentBackground(this);
-
-        ImageControl.getInstance()
-                .loadNet(mImageView, "http://ww2.sinaimg.cn/large/610dc034jw1fak99uh554j20u00u0n09.jpg", R.anim.sacle_largen_view);
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -46,11 +40,13 @@ public abstract class SplashActivity extends BaseActivity {
         }, 1500);
     }
 
+    protected abstract Class getNextActivity2Launch();
+
     private void startNextActivity(final Class clazz) {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(SplashActivity.this, clazz));
+                startActivity(new Intent(SplashImplActy.this, clazz));
                 finish();
             }
         });

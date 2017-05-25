@@ -1,4 +1,4 @@
-package basic2.control.mvp;
+package basic2.base.mvp;
 
 /**
  * @USER: https://github.com/meikoz/
@@ -12,5 +12,5 @@ public interface BaseLogic<V extends BaseView> {
 
     boolean isBind();
 
-    V of();
+    V view();
 }

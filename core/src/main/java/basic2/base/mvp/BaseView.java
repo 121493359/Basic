@@ -1,4 +1,4 @@
-package basic2.control.mvp;
+package basic2.base.mvp;
 
 /**
  * @USER: https://github.com/meikoz/

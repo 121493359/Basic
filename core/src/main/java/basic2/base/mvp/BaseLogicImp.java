@@ -1,4 +1,4 @@
-package basic2.control.mvp;
+package basic2.base.mvp;
 
 /**
  * @USER: https://github.com/meikoz/
@@ -29,7 +29,7 @@ public class BaseLogicImp<V extends BaseView> implements BaseLogic<V> {
     }
 
     @Override
-    public V of() {
+    public V view() {
         return mBaseV;
     }
 }
