@@ -1,4 +1,4 @@
-package com.meikoz.core.util;
+package basic2.control;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
