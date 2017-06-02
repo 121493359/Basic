@@ -1,4 +1,4 @@
-package basic2.control.log;
+package basic2.engine.log;
 
 public enum LogLevel {
     FULL,

@@ -3,7 +3,7 @@ package com.meikoz.basic.ui;
 import com.meikoz.basic.R;
 
 import basic2.base.BaseActy;
-import basic2.control.annotation.Layout;
+import basic2.engine.annotation.Layout;
 
 /**
  * @USER: https://github.com/meikoz/

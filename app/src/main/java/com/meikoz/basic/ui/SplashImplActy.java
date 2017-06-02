@@ -7,7 +7,7 @@ import android.widget.ImageView;
 import com.meikoz.basic.R;
 
 import basic2.base.BaseActy;
-import basic2.control.StatusBarUtil;
+import basic2.engine.StatusBarUtil;
 import butterknife.Bind;
 
 /**

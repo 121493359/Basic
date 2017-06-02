@@ -2,7 +2,7 @@ package com.meikoz.basic.ui;
 
 import com.meikoz.basic.R;
 
-import basic2.control.annotation.Layout;
+import basic2.engine.annotation.Layout;
 
 /**
  * Author: 码农小阿新

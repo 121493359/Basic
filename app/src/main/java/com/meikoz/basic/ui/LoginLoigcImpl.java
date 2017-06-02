@@ -3,7 +3,7 @@ package com.meikoz.basic.ui;
 import com.meikoz.basic.app.ApiInterface;
 import com.meikoz.basic.model.Gank;
 
-import basic2.control.api.HttpFactory;
+import basic2.engine.api.HttpFactory;
 import basic2.base.mvp.BaseLogicImp;
 import retrofit2.Call;
 import retrofit2.Callback;

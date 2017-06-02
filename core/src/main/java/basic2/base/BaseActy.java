@@ -9,7 +9,7 @@ import java.util.List;
 
 import basic2.base.mvp.BaseLogicImp;
 import basic2.base.mvp.BaseView;
-import basic2.control.annotation.BasicKnife;
+import basic2.engine.annotation.BasicKnife;
 
 /**
  * @USER: https://github.com/meikoz
